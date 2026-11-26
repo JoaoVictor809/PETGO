@@ -1,0 +1,511 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços & Fidelidade - PetGo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+            :root {
+                --brand-teal: #2B6B6C;
+                --brand-teal-dark: #1E4D4E;
+                --brand-orange: #F27825;
+                --brand-bg: #F8F9FA;
+                --text-main: #333333;
+            }
+
+            body {
+                background-color: var(--brand-bg);
+                font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+                color: var(--text-main);
+            }
+
+            /* Header Logo Padrão */
+            .header-logo-container {
+                background-color: #FFF;
+                padding: 15px 0;
+                border-bottom: 1px solid #EAEAEA;
+            }
+
+            /* Menu Navegação Padrão */
+            .navbar-custom {
+                background-color: #E2CDAE;
+                border-bottom: 1px solid #D1B896;
+            }
+
+                .navbar-custom .nav-link {
+                    color: #333 !important;
+                    font-weight: 600;
+                    padding: 10px 20px !important;
+                }
+
+                    .navbar-custom .nav-link.active {
+                        background-color: var(--brand-teal);
+                        color: #fff !important;
+                        border-radius: 4px;
+                    }
+
+            /* Banner Serviços */
+            .hero-services {
+                background: linear-gradient(rgba(30, 77, 78, 0.85), rgba(30, 77, 78, 0.85)), url('https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&w=1400&q=80') center/cover;
+                color: white;
+                padding: 70px 0;
+                text-align: center;
+            }
+
+            /* Card de Serviço */
+            .service-card {
+                background: #ffffff;
+                border: 1px solid #EAEAEA;
+                border-radius: 12px;
+                padding: 30px 20px;
+                text-align: center;
+                height: 100%;
+                transition: transform 0.3s, box-shadow 0.3s;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+
+                .service-card:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+                }
+
+            .service-icon {
+                font-size: 3rem;
+                color: var(--brand-orange);
+                margin-bottom: 20px;
+            }
+
+            .price-tag {
+                font-size: 1.25rem;
+                font-weight: 700;
+                color: var(--brand-teal-dark);
+                margin: 15px 0;
+            }
+
+            /* Seção Programa de Fidelidade */
+            .loyalty-section {
+                background: linear-gradient(135deg, #1E4D4E 0%, #2B6B6C 100%);
+                color: white;
+                border-radius: 16px;
+                padding: 40px;
+                box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            }
+
+            .loyalty-step {
+                background: rgba(255, 255, 255, 0.1);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                border-radius: 12px;
+                padding: 20px;
+                height: 100%;
+            }
+
+            .loyalty-badge {
+                background-color: var(--brand-orange);
+                color: white;
+                font-weight: 700;
+                padding: 4px 12px;
+                border-radius: 20px;
+                font-size: 0.85rem;
+                display: inline-block;
+                margin-bottom: 10px;
+            }
+
+            /* Planos de Banho */
+            .pricing-card {
+                background: #fff;
+                border: 2px solid #EAEAEA;
+                border-radius: 12px;
+                padding: 30px;
+                text-align: center;
+                transition: all 0.3s;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+
+                .pricing-card.featured {
+                    border-color: var(--brand-orange);
+                    box-shadow: 0 5px 20px rgba(242, 120, 37, 0.15);
+                    position: relative;
+                }
+
+            .featured-badge {
+                position: absolute;
+                top: -12px;
+                left: 50%;
+                transform: translateX(-50%);
+                background-color: var(--brand-orange);
+                color: white;
+                font-size: 0.8rem;
+                font-weight: 700;
+                padding: 4px 15px;
+                border-radius: 20px;
+            }
+
+            /* Botões */
+            .btn-agendar {
+                background-color: var(--brand-teal);
+                color: white;
+                font-weight: 700;
+                padding: 10px 24px;
+                border-radius: 25px;
+                text-decoration: none;
+                transition: background-color 0.3s;
+                display: inline-block;
+            }
+
+                .btn-agendar:hover {
+                    background-color: var(--brand-teal-dark);
+                    color: white;
+                }
+
+            .btn-fidelidade {
+                background-color: var(--brand-orange);
+                color: white;
+                font-weight: 700;
+                padding: 12px 28px;
+                border-radius: 25px;
+                border: none;
+                transition: background 0.3s;
+            }
+
+                .btn-fidelidade:hover {
+                    background-color: #d86213;
+                    color: white;
+                }
+
+            .btn-whatsapp-service {
+                background-color: #25D366;
+                color: white;
+                font-weight: 700;
+                padding: 10px 24px;
+                border-radius: 25px;
+                text-decoration: none;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+            }
+
+                .btn-whatsapp-service:hover {
+                    background-color: #1EBE5D;
+                    color: white;
+                }
+
+            footer {
+                background-color: #1A1D20;
+                color: #D3D3D3;
+                padding: 40px 0 20px;
+            }
+    </style>
+</head>
+<body>
+
+    <!-- Header Logo Padrão -->
+    <header class="header-logo-container">
+        <div class="container text-center">
+            <div class="d-inline-flex align-items-center">
+                <i class="fa-solid fa-dog fa-3x me-2" style="color: var(--brand-orange);"></i>
+                <h1 class="m-0 fw-bold" style="font-size: 2.8rem;">
+                    <span style="color: var(--brand-teal);">Pet</span><span style="color: var(--brand-orange);">Go</span>
+                </h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- Menu de Navegação Padrão -->
+    <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+        <div class="container justify-content-center">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav"
+            </div>
+        </div>
+    </nav>
+
+    <!-- Banner Serviços -->
+    <section class="hero-services">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-3">Serviços Especializados PetGo</h1>
+            <p class="fs-5 max-w-700 mx-auto">Cuidado completo, bem-estar e vantagens exclusivas para o seu pet a cada agendamento.</p>
+        </div>
+    </section>
+
+    <!-- Grade de Serviços -->
+    <section class="container my-5" id="servicos">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold" style="color: var(--brand-teal-dark);">Nossos Serviços Estéticos e de Conveniência</h2>
+            <p class="text-muted">Escolha o serviço ideal para deixar seu melhor amigo limpo, saudável e feliz.</p>
+        </div>
+
+        <div class="row g-4">
+
+            <!-- Banho e Tosa -->
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <div>
+                        <i class="fa-solid fa-shower service-icon"></i>
+                        <h4 class="fw-bold">Banho e Tosa Completo</h4>
+                        <p class="text-muted small">Higienização com produtos hipoalergênicos, secagem rápida, hidratação, corte de unhas, limpeza de ouvidos e tosa higiênica ou da raça.</p>
+                    </div>
+                    <div>
+                        <div class="price-tag">A partir de R$ 60,00</div>
+                        <a href="https://wa.me/5511987654321?text=Olá,%20gostaria%20de%20agendar%20Banho%20e%20Tosa" class="btn btn-whatsapp-service w-100"><i class="fa-brands fa-whatsapp"></i> Agendar Banho</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hotelzinho / Creche -->
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <div>
+                        <i class="fa-solid fa-hotel service-icon"></i>
+                        <h4 class="fw-bold">Hotelzinho & Daycare</h4>
+                        <p class="text-muted small">Hospedagem segura e divertida com supervisão 24h, atividades recreativas, espaço amplo e monitoramento em tempo real.</p>
+                    </div>
+                    <div>
+                        <div class="price-tag">Diárias a partir de R$ 90,00</div>
+                        <a href="https://wa.me/5511987654321?text=Olá,%20gostaria%20de%20informações%20sobre%20o%20Hotelzinho" class="btn btn-whatsapp-service w-100"><i class="fa-brands fa-whatsapp"></i> Reservar Vaga</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Taxi Dog -->
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <div>
+                        <i class="fa-solid fa-taxi service-icon"></i>
+                        <h4 class="fw-bold">Leva e Traz (Taxi Dog)</h4>
+                        <p class="text-muted small">Transporte seguro em caixa individual climatizada. Buscamos e levamos seu pet na sua residência para qualquer serviço.</p>
+                    </div>
+                    <div>
+                        <div class="price-tag">A partir de R$ 25,00 (por trecho)</div>
+                        <a href="https://wa.me/5511987654321?text=Olá,%20gostaria%20de%20solicitar%20o%20Taxi%20Dog" class="btn btn-whatsapp-service w-100"><i class="fa-brands fa-whatsapp"></i> Solicitar Transporte</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Adestramento -->
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <div>
+                        <i class="fa-solid fa-graduation-cap service-icon"></i>
+                        <h4 class="fw-bold">Adestramento Comportamental</h4>
+                        <p class="text-muted small">Aulas focadas em reforço positivo para socialização, comandos básicos, correção de maus hábitos e obediência.</p>
+                    </div>
+                    <div>
+                        <div class="price-tag">Sessão a partir de R$ 120,00</div>
+                        <a href="https://wa.me/5511987654321?text=Olá,%20gostaria%20de%20agendar%20uma%20avaliação%20de%20Adestramento" class="btn btn-whatsapp-service w-100"><i class="fa-brands fa-whatsapp"></i> Saber Mais</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Atendimento Domiciliar -->
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <div>
+                        <i class="fa-solid fa-house-medical service-icon"></i>
+                        <h4 class="fw-bold">Vet em Casa (Domiciliar)</h4>
+                        <p class="text-muted small">Consultas e aplicação de vacinas no conforto do seu lar, reduzindo o estresse de animais tímidos ou idosos.</p>
+                    </div>
+                    <div>
+                        <div class="price-tag">Consulta a partir de R$ 180,00</div>
+                        <a href="https://wa.me/5511987654321?text=Olá,%20gostaria%20de%20agendar%20uma%20consulta%20domiciliar" class="btn btn-whatsapp-service w-100"><i class="fa-brands fa-whatsapp"></i> Agendar em Casa</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Estética Especializada -->
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <div>
+                        <i class="fa-solid fa-scissors service-icon"></i>
+                        <h4 class="fw-bold">Spa & Tosa Tesoura</h4>
+                        <p class="text-muted small">Tratamentos de hidratação profunda, banho relaxante de ofurô e tosa artística exclusiva feita totalmente na tesoura.</p>
+                    </div>
+                    <div>
+                        <div class="price-tag">A partir de R$ 110,00</div>
+                        <a href="https://wa.me/5511987654321?text=Olá,%20gostaria%20de%20agendar%20o%20Spa%20Pet" class="btn btn-whatsapp-service w-100"><i class="fa-brands fa-whatsapp"></i> Agendar Spa</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PROGRAMA DE FIDELIDADE -->
+    <section class="container my-5" id="fidelidade">
+        <div class="loyalty-section">
+            <div class="row align-items-center">
+
+                <!-- Apresentação do Programa -->
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <span class="loyalty-badge"><i class="fa-solid fa-star me-1"></i> Clube PetGo Fidelidade</span>
+                    <h2 class="display-6 fw-bold mb-3">Acumule pontos e ganhe banhos e descontos grátis!</h2>
+                    <p class="text-light opacity-90 mb-4">A cada R$ 10,00 em compras ou serviços na PetGo, você acumula **1 Ponto Fidelidade**. Troque seus pontos por benefícios exclusivos:</p>
+
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <div class="loyalty-step text-center">
+                                <h3 class="fw-bold text-warning m-0">50 Pts</h3>
+                                <small class="text-light">1 Hidratação Grátis</small>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="loyalty-step text-center">
+                                <h3 class="fw-bold text-warning m-0">100 Pts</h3>
+                                <small class="text-light">1 Banho Completo Grátis</small>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="loyalty-step text-center">
+                                <h3 class="fw-bold text-warning m-0">150 Pts</h3>
+                                <small class="text-light">R$ 50 em Compras no Pet Shop</small>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="loyalty-step text-center">
+                                <h3 class="fw-bold text-warning m-0">200 Pts</h3>
+                                <small class="text-light">1 Diária de Hotelzinho Grátis</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulário de Cadastro Rápido -->
+                <div class="col-lg-6">
+                    <div class="bg-white text-dark p-4 rounded-3 shadow">
+                        <h4 class="fw-bold text-center mb-2" style="color: var(--brand-teal-dark);">Cadastre-se no Clube PetGo</h4>
+                        <p class="text-muted text-center small mb-4">É grátis! Ganhe **20 pontos de bônus** imediatamente após o cadastro.</p>
+
+                        <form>
+                            <div class="mb-3">
+                                <label class="form-label small fw-bold">Seu Nome Completo</label>
+                                <input type="text" class="form-control" placeholder="Ex: Maria Silva" required>
+                            </div>
+                            <div class="row g-2 mb-3">
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">WhatsApp</label>
+                                    <input type="tel" class="form-control" placeholder="(11) 99999-9999" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">CPF (para os pontos)</label>
+                                    <input type="text" class="form-control" placeholder="000.000.000-00" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small fw-bold">Nome do Seu Pet</label>
+                                <input type="text" class="form-control" placeholder="Ex: Thor, Mel..." required>
+                            </div>
+                            <button type="submit" class="btn btn-fidelidade w-100"><i class="fa-solid fa-gift me-2"></i>Quero Me Cadastrar e Ganhar Pontos</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Pacotes Mensais de Banho (Planos) -->
+    <section class="bg-white py-5" id="pacotes">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold" style="color: var(--brand-teal-dark);">Pacotes Mensais de Banho & Estética</h2>
+                <p class="text-muted">Economize mantendo a higiene do seu pet em dia. Assinantes acumulam **pontos em dobro** no Clube PetGo!</p>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                <!-- Plano Essencial -->
+                <div class="col-md-4">
+                    <div class="pricing-card">
+                        <div>
+                            <h4 class="fw-bold mb-2">Plano Essencial</h4>
+                            <p class="text-muted small">Ideal para manutenção semanal</p>
+                            <div class="display-6 fw-bold my-3 text-success">R$ 199<span class="fs-6 text-muted">/mês</span></div>
+                            <ul class="list-unstyled text-start small text-secondary lh-lg mb-4">
+                                <li><i class="fa-solid fa-check text-success me-2"></i> 4 Banhos simples no mês</li>
+                                <li><i class="fa-solid fa-check text-success me-2"></i> 1 Tosa higiênica inclusa</li>
+                                <li><i class="fa-solid fa-check text-success me-2"></i> Corte de unhas e ouvido</li>
+                                <li><i class="fa-solid fa-xmark text-danger me-2"></i> Leva e Traz gratuito</li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/5511987654321?text=Quero%20assinar%20o%20Plano%20Essencial" class="btn btn-agendar w-100">Assinar Plano</a>
+                    </div>
+                </div>
+
+                <!-- Plano Conforto (Destaque) -->
+                <div class="col-md-4">
+                    <div class="pricing-card featured">
+                        <span class="featured-badge">Mais Popular</span>
+                        <div>
+                            <h4 class="fw-bold mb-2" style="color: var(--brand-orange);">Plano Conforto</h4>
+                            <p class="text-muted small">Cuidados completos e comodidade</p>
+                            <div class="display-6 fw-bold my-3 text-success">R$ 299<span class="fs-6 text-muted">/mês</span></div>
+                            <ul class="list-unstyled text-start small text-secondary lh-lg mb-4">
+                                <li><i class="fa-solid fa-check text-success me-2"></i> 4 Banhos com hidratação</li>
+                                <li><i class="fa-solid fa-check text-success me-2"></i> 1 Tosa completa (geral)</li>
+                                <li><i class="fa-solid fa-check text-success me-2"></i> Corte de unhas e ouvido</li>
+                                <li><i class="fa-solid fa-check text-success me-2"></i> Taxi Dog incluso (até 5km)</li>
+                                <li><i class="fa-solid fa-check text-success me-2"></i> **Pontos em dobro no Fidelidade**</li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/5511987654321?text=Quero%20assinar%20o%20Plano%20Conforto" class="btn btn-agendar w-100 border-0" style="background-color: var(--brand-orange);">Assinar Plano</a>
+                    </div>
+                </div>
+
+                <!-- Plano VIP -->
+                <div class="col-md-4">
+                    <div class="pricing-card">
+                        <div>
+                            <h4 class="fw-bold mb-2">Plano Premium VIP</h4>
+                            <p class="text-muted small">Experiência completa de Spa</p>
+                            <div class="display-6 fw-bold my-3 text-success">R$ 399<span class="fs-6 text-muted">/mês</span></div>
+                            <ul class="list-unstyled text-start small text-secondary lh-lg mb-4">
+                                <li><i class="fa-solid fa-check text-success me-2"></i> Banhos ilimitados no mês</li>
+                                <li><i class="fa-solid fa-check text-success me-2"></i> Tosa máquina/tesoura livre</li>
+                                <li><i class="fa-solid fa-check text-success me-2"></i> Tratamento de Spa & Odores</li>
+                                <li><i class="fa-solid fa-check text-success me-2"></i> Taxi Dog ilimitado (até 10km)</li>
+                                <li><i class="fa-solid fa-check text-success me-2"></i> **Pontos em dobro no Fidelidade**</li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/5511987654321?text=Quero%20assinar%20o%20Plano%20VIP" class="btn btn-agendar w-100">Assinar Plano</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer id="contato">
+        <div class="container">
+            <div class="row g-4 mb-4">
+                <div class="col-lg-6">
+                    <h5 class="text-white fw-bold mb-3">PetGo - Centro de Serviços Pet</h5>
+                    <p class="small text-secondary mb-2"><i class="fa-solid fa-location-dot me-2 text-warning"></i> Rua dos Pets Felizes, 123 - São Paulo/SP</p>
+                    <p class="small text-secondary mb-2"><i class="fa-solid fa-phone me-2 text-warning"></i> (11) 98765-4321</p>
+                    <p class="small text-secondary m-0"><i class="fa-solid fa-envelope me-2 text-warning"></i> servicos@petgo.com.br</p>
+                </div>
+                <div class="col-lg-6 text-lg-end">
+                    <h5 class="text-white fw-bold mb-3">Horário dos Serviços</h5>
+                    <p class="small text-secondary mb-1">Banho & Tosa: Seg a Sáb, das 08h às 18h</p>
+                    <p class="small text-secondary mb-1">Creche & Hotelzinho: Atendimento Diário 24h</p>
+                    <p class="small text-secondary mb-1">Programa de Fidelidade: Válido em toda a rede</p>
+                </div>
+            </div>
+            <hr class="border-secondary">
+            <div class="text-center small text-secondary">
+                © 2026 PetGo Serviços Pet. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

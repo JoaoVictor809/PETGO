@@ -1,0 +1,535 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetGo - Clínica Veterinária & Pet Shop</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+            :root {
+                --brand-teal: #2B6B6C;
+                --brand-teal-dark: #1E4D4E;
+                --brand-orange: #F27825;
+                --brand-orange-light: #FF944B;
+                --brand-bg: #F8F9FA;
+                --card-bg: #FFFFFF;
+                --text-main: #333333;
+                --text-muted: #666666;
+            }
+
+            body {
+                background-color: var(--brand-bg);
+                font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+                color: var(--text-main);
+            }
+
+            /* Header e Nav */
+            .header-logo-container {
+                background-color: #FFF;
+                padding: 15px 0;
+                border-bottom: 1px solid #EAEAEA;
+            }
+
+            .navbar-custom {
+                background-color: #E2CDAE;
+                border-bottom: 1px solid #D1B896;
+            }
+
+                .navbar-custom .nav-link {
+                    color: #333 !important;
+                    font-weight: 600;
+                    padding: 10px 20px !important;
+                }
+
+                    .navbar-custom .nav-link.active {
+                        background-color: var(--brand-teal);
+                        color: #fff !important;
+                        border-radius: 4px;
+                    }
+
+            /* Carrossel Hero */
+            .hero-carousel .carousel-item {
+                height: 420px;
+                background-size: cover;
+                background-position: center;
+                position: relative;
+            }
+
+            .hero-carousel .carousel-caption-custom {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                top: 0;
+                background: rgba(0, 0, 0, 0.45);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                color: #fff;
+                text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+                padding: 20px;
+            }
+
+            /* Cartões de Serviços */
+            .service-card {
+                background: #FFFFFF;
+                border: 1px solid #E9ECEF;
+                border-radius: 16px;
+                padding: 30px 25px;
+                height: 100%;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+                position: relative;
+            }
+
+                .service-card:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+                    border-color: #DDE2E5;
+                }
+
+            .service-icon-box {
+                width: 54px;
+                height: 54px;
+                border-radius: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 24px;
+                margin-bottom: 20px;
+                color: #fff;
+            }
+
+            .icon-blue {
+                background-color: #17A2B8;
+            }
+
+            .icon-teal {
+                background-color: #20C997;
+            }
+
+            .icon-green {
+                background-color: #28A745;
+            }
+
+            .icon-purple {
+                background-color: #6F42C1;
+            }
+
+            .icon-orange {
+                background-color: #FD7E14;
+            }
+
+            .service-title {
+                font-size: 1.35rem;
+                font-weight: 700;
+                color: #222;
+                margin-bottom: 10px;
+            }
+
+            .service-description {
+                font-size: 0.92rem;
+                color: var(--text-muted);
+                margin-bottom: 20px;
+                line-height: 1.5;
+            }
+
+            .service-list {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+                .service-list li {
+                    font-size: 0.9rem;
+                    color: #444;
+                    margin-bottom: 10px;
+                    display: flex;
+                    align-items: center;
+                }
+
+                    .service-list li i {
+                        color: #20C997;
+                        font-size: 0.85rem;
+                        margin-right: 10px;
+                    }
+
+            /* Vitrine do Pet Shop */
+            .product-card {
+                background: #fff;
+                border: 1px solid #EAEAEA;
+                border-radius: 12px;
+                padding: 15px;
+                text-align: center;
+                height: 100%;
+                transition: all 0.3s;
+            }
+
+                .product-card:hover {
+                    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+                }
+
+                .product-card img {
+                    max-height: 140px;
+                    object-fit: contain;
+                    margin-bottom: 15px;
+                }
+
+            /* Depoimentos */
+            .testimonial-card {
+                background: #fff;
+                border-radius: 12px;
+                padding: 20px;
+                border: 1px solid #EAEAEA;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+                height: 100%;
+            }
+
+            .stars {
+                color: #FFC107;
+                margin-bottom: 10px;
+            }
+
+            /* Botões */
+            .btn-whatsapp {
+                background-color: #25D366;
+                color: #fff;
+                font-weight: 600;
+                border: none;
+                border-radius: 25px;
+                padding: 8px 20px;
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                text-decoration: none;
+            }
+
+                .btn-whatsapp:hover {
+                    background-color: #1EBE5D;
+                    color: #fff;
+                }
+
+            .btn-agendar-main {
+                background-color: var(--brand-teal);
+                color: #fff;
+                font-size: 1.1rem;
+                font-weight: 700;
+                padding: 14px 40px;
+                border-radius: 30px;
+                border: none;
+                box-shadow: 0 4px 12px rgba(43, 107, 108, 0.3);
+                transition: all 0.3s;
+                text-decoration: none;
+            }
+
+                .btn-agendar-main:hover {
+                    background-color: var(--brand-teal-dark);
+                    color: #fff;
+                    transform: translateY(-2px);
+                }
+
+            /* Rodapé Informativo */
+            footer {
+                background-color: #1A1D20;
+                color: #D3D3D3;
+                padding: 50px 0 20px;
+            }
+    </style>
+</head>
+<body>
+
+    <header class="header-logo-container">
+        <div class="container text-center">
+            <div class="d-inline-flex flex-column align-items-center">
+                <div class="d-flex align-items-center">
+                    <i class="fa-solid fa-dog fa-3x me-2" style="color: var(--brand-orange);"></i>
+                    <h1 class="m-0 fw-bold" style="font-size: 2.8rem;">
+                        <span style="color: var(--brand-teal);">Pet</span><span style="color: var(--brand-orange);">Go</span>
+                        <i class="fa-solid fa-arrow-right-long" style="color: var(--brand-orange); font-size: 1.8rem;"></i>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+        <div class="container justify-content-center">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+         
+            </div>
+        </div>
+    </nav>
+
+    <div id="heroCarousel" class="carousel slide hero-carousel mb-5" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active" style="background-image: url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1400&q=80');">
+                <div class="carousel-caption-custom text-center">
+                    <h2 class="display-4 fw-bold">PetGo: Cuidado Veterinário de Excelência</h2>
+                    <p class="fs-5">Consultas, vacinas e diagnósticos completos com profissionais experientes.</p>
+                    <a href="#agendar" class="btn btn-agendar-main mt-3">Agendar Consulta</a>
+                </div>
+            </div>
+            <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&w=1400&q=80');">
+                <div class="carousel-caption-custom text-center">
+                    <h2 class="display-4 fw-bold">Banho & Tosa Especializado</h2>
+                    <p class="fs-5">Tratamentos especiais de estética e hidratação para todas as raças.</p>
+                    <a href="#agendar" class="btn btn-agendar-main mt-3">Agendar Banho</a>
+                </div>
+            </div>
+            <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=1400&q=80');">
+                <div class="carousel-caption-custom text-center">
+                    <h2 class="display-4 fw-bold">Onde seu Pet Brinca e se Diverte</h2>
+                    <p class="fs-5">Serviço de Leva e Trás seguro e produtos selecionados no nosso Pet Shop.</p>
+                    <a href="#petshop" class="btn btn-agendar-main mt-3">Ver Produtos</a>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+
+    <section class="container my-5" id="servicos">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold" style="color: var(--brand-teal-dark);">Nossos Serviços em Destaque</h2>
+            <p class="text-muted">Oferecemos atendimento completo e especializado para a saúde e bem-estar do seu amigo.</p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <div class="service-icon-box icon-blue">
+                        <i class="fa-solid fa-stethoscope"></i>
+                    </div>
+                    <h3 class="service-title">Clínica Veterinária</h3>
+                    <p class="service-description">Consultas, vacinas, exames, diagnósticos e tratamento com veterinários experientes.</p>
+                    <ul class="service-list">
+                        <li><i class="fa-solid fa-check"></i> Consultas gerais</li>
+                        <li><i class="fa-solid fa-check"></i> Vacinas importadas</li>
+                        <li><i class="fa-solid fa-check"></i> Exames laboratoriais</li>
+                        <li><i class="fa-solid fa-check"></i> Diagnóstico por imagem</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <div class="service-icon-box icon-teal">
+                        <i class="fa-solid fa-hospital-user"></i>
+                    </div>
+                    <h3 class="service-title">Centro Cirúrgico</h3>
+                    <p class="service-description">Centro cirúrgico completo com cirurgiões altamente qualificados.</p>
+                    <ul class="service-list">
+                        <li><i class="fa-solid fa-check"></i> Cirurgia Geral</li>
+                        <li><i class="fa-solid fa-check"></i> Castração segura</li>
+                        <li><i class="fa-solid fa-check"></i> Limpeza de tártaro</li>
+                        <li><i class="fa-solid fa-check"></i> Anestesia inalatória</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <div class="service-icon-box icon-green">
+                        <i class="fa-solid fa-pills"></i>
+                    </div>
+                    <h3 class="service-title">Farmácia Veterinária</h3>
+                    <p class="service-description">Medicamentos e suplementos essenciais para a saúde contínua do seu animal.</p>
+                    <ul class="service-list">
+                        <li><i class="fa-solid fa-check"></i> Medicamentos de ponta</li>
+                        <li><i class="fa-solid fa-check"></i> Rações medicamentosas</li>
+                        <li><i class="fa-solid fa-check"></i> Suplementos vitamínicos</li>
+                        <li><i class="fa-solid fa-check"></i> Antipulgas e vermífugos</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <div class="service-icon-box icon-teal">
+                        <i class="fa-solid fa-scissors"></i>
+                    </div>
+                    <h3 class="service-title">Banho & Tosa</h3>
+                    <p class="service-description">Serviço completo de estética animal com profissionais carinhosos e treinados.</p>
+                    <ul class="service-list">
+                        <li><i class="fa-solid fa-check"></i> Banho e Tosa tradicional</li>
+                        <li><i class="fa-solid fa-check"></i> Tosa higiênica / máquina e tesoura</li>
+                        <li><i class="fa-solid fa-check"></i> Tosas específicas e Trimming</li>
+                        <li><i class="fa-solid fa-check"></i> Hidratação de pelagem</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <div class="service-icon-box icon-purple">
+                        <i class="fa-solid fa-sparkles"></i>
+                    </div>
+                    <h3 class="service-title">Estética Avançada</h3>
+                    <p class="service-description">Serviços especiais desenvolvidos para deixar seu pet ainda mais bonito e saudável.</p>
+                    <ul class="service-list">
+                        <li><i class="fa-solid fa-check"></i> Shampoos ecologicamente testados</li>
+                        <li><i class="fa-solid fa-check"></i> Hidratação profunda de pelagem</li>
+                        <li><i class="fa-solid fa-check"></i> Serviço de desembolo sem dor</li>
+                        <li><i class="fa-solid fa-check"></i> Corte de unhas e limpeza de ouvido</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <div class="service-icon-box icon-orange">
+                        <i class="fa-solid fa-van-shuttle"></i>
+                    </div>
+                    <h3 class="service-title">Leva e Trás</h3>
+                    <p class="service-description">Veículo adaptado, climatizado e motorista capacitado para o transporte do seu pet.</p>
+                    <ul class="service-list">
+                        <li><i class="fa-solid fa-check"></i> Transporte 100% seguro</li>
+                        <li><i class="fa-solid fa-check"></i> Pontualidade no serviço</li>
+                        <li><i class="fa-solid fa-check"></i> Profissional dedicado</li>
+                        <li><i class="fa-solid fa-check"></i> Caixa de transporte higienizada</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-5" id="agendar">
+            <a href="https://wa.me/5511987654321" target="_blank" class="btn btn-agendar-main">
+                <i class="fa-brands fa-whatsapp me-2"></i> Agendar Horário via WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <section class="py-5 style-section" style="background-color: #FFF;" id="petshop">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <h3 class="fw-bold m-0" style="color: var(--brand-teal-dark);">Vitrine do Pet Shop</h3>
+                    <p class="text-muted m-0 small">Os melhores produtos selecionados para o seu pet</p>
+                </div>
+                <a href="#" class="text-decoration-none fw-bold" style="color: var(--brand-orange);">Ver todos <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="row g-3">
+                <div class="col-6 col-md-3">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1589924691995-400dc9ecc119?auto=format&fit=crop&w=300&q=80" alt="Ração Premium" class="img-fluid">
+                        <h6 class="fw-bold mb-1">Ração Premium Cães</h6>
+                        <div class="text-success fw-bold mb-2">R$ 169,00</div>
+                        <a href="https://wa.me/5511987654321" class="btn btn-whatsapp btn-sm w-100 justify-content-center"><i class="fa-brands fa-whatsapp"></i> Comprar</a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1535294435445-d7249524ef2e?auto=format&fit=crop&w=300&q=80" alt="Brinquedo Interativo" class="img-fluid">
+                        <h6 class="fw-bold mb-1">Brinquedo Mordedor</h6>
+                        <div class="text-success fw-bold mb-2">R$ 39,90</div>
+                        <a href="https://wa.me/5511987654321" class="btn btn-whatsapp btn-sm w-100 justify-content-center"><i class="fa-brands fa-whatsapp"></i> Comprar</a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6?auto=format&fit=crop&w=300&q=80" alt="Cama Ortopédica" class="img-fluid">
+                        <h6 class="fw-bold mb-1">Cama Confort Ortopédica</h6>
+                        <div class="text-success fw-bold mb-2">R$ 219,00</div>
+                        <a href="https://wa.me/5511987654321" class="btn btn-whatsapp btn-sm w-100 justify-content-center"><i class="fa-brands fa-whatsapp"></i> Comprar</a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1545249390-6bdfa286032f?auto=format&fit=crop&w=300&q=80" alt="Arranhador Gatos" class="img-fluid">
+                        <h6 class="fw-bold mb-1">Arranhador Torre Gatos</h6>
+                        <div class="text-success fw-bold mb-2">R$ 149,00</div>
+                        <a href="https://wa.me/5511987654321" class="btn btn-whatsapp btn-sm w-100 justify-content-center"><i class="fa-brands fa-whatsapp"></i> Comprar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 container" id="depoimentos">
+        <div class="text-center mb-4">
+            <h3 class="fw-bold" style="color: var(--brand-teal-dark);">O que nossos clientes dizem</h3>
+            <p class="text-muted">A satisfação dos tutores e o carinho com os pets são nosso maior compromisso.</p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="testimonial-card">
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="small text-secondary mb-3">"Excelente atendimento! Levei meu Golden para banho e tosa e ele voltou super cheiroso e calmo. A equipe é muito carinhosa."</p>
+                    <div class="fw-bold small">— Mariana & Thor</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial-card">
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="small text-secondary mb-3">"A clínica veterinária é fantástica. Tive uma emergência com minha gatinha e fomos atendidos rapidamente com todo o cuidado."</p>
+                    <div class="fw-bold small">— Carlos & Mia</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial-card">
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="small text-secondary mb-3">"O serviço de Leva e Trás facilita muito minha rotina. Super pontuais e profissionais. Recomendo de olhos fechados!"</p>
+                    <div class="fw-bold small">— Fernanda & Bidu</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contato">
+        <div class="container">
+            <div class="row g-4 mb-4">
+                <div class="col-lg-4">
+                    <h5 class="text-white fw-bold mb-3">PetGo</h5>
+                    <p class="small text-secondary">A sua clínica veterinária e pet shop completa. Cuidado, amor e dedicação em cada atendimento.</p>
+                    <div class="d-flex gap-3 fs-5">
+                        <a href="#" class="text-white"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="text-white"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <h5 class="text-white fw-bold mb-3">Informações de Atendimento</h5>
+                    <ul class="list-unstyled small text-secondary m-0">
+                        <li class="mb-2"><i class="fa-solid fa-location-dot me-2 text-warning"></i> Rua dos Pets Felizes, 123 - São Paulo/SP</li>
+                        <li class="mb-2"><i class="fa-solid fa-phone me-2 text-warning"></i> (11) 98765-4321</li>
+                        <li class="mb-2"><i class="fa-solid fa-clock me-2 text-warning"></i> Seg-Sex: 8h às 20h | Sáb-Dom: 9h às 17h</li>
+                        <li class="mb-2 text-danger fw-bold"><i class="fa-solid fa-truck-medical me-2"></i> Emergências: 24h</li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4">
+                    <h5 class="text-white fw-bold mb-3">Localização</h5>
+                    <div class="rounded overflow-hidden border border-secondary" style="height: 140px;">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.1975825283404!2d-46.65867!3d-23.561414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDMzJzQxLjEiUyA0NsKwMzknMzEuMiJX!5e0!3m2!1spt-BR!2sbr!4v1620000000000!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-secondary">
+            <div class="text-center small text-secondary">
+                © 2026 PetGo. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
