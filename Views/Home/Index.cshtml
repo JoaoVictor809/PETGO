@@ -8,252 +8,303 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-            :root {
-                --brand-teal: #2B6B6C;
-                --brand-teal-dark: #1E4D4E;
-                --brand-orange: #F27825;
-                --brand-orange-light: #FF944B;
-                --brand-bg: #F8F9FA;
-                --card-bg: #FFFFFF;
-                --text-main: #333333;
-                --text-muted: #666666;
-            }
+		:root {
+		--brand-teal: #2B6B6C;
+		--brand-teal-dark: #1E4D4E;
+		--brand-orange: #F27825;
+		--brand-orange-light: #FF944B;
+		--brand-bg: #F8F9FA;
+		--card-bg: #FFFFFF;
+		--text-main: #333333;
+		--text-muted: #666666;
+		}
 
-            body {
-                background-color: var(--brand-bg);
-                font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-                color: var(--text-main);
-            }
+		body {
+		background-color: var(--brand-bg);
+		font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+		color: var(--text-main);
+		}
 
-            /* Header e Nav */
-            .header-logo-container {
-                background-color: #FFF;
-                padding: 15px 0;
-                border-bottom: 1px solid #EAEAEA;
-            }
+		/* Header e Nav */
+		.header-logo-container {
+		background-color: #FFF;
+		padding: 15px 0;
+		border-bottom: 1px solid #EAEAEA;
+		}
 
-            .navbar-custom {
-                background-color: #E2CDAE;
-                border-bottom: 1px solid #D1B896;
-            }
+		.navbar-custom {
+		background-color: #E2CDAE;
+		border-bottom: 1px solid #D1B896;
+		}
 
-                .navbar-custom .nav-link {
-                    color: #333 !important;
-                    font-weight: 600;
-                    padding: 10px 20px !important;
-                }
+		.navbar-custom .nav-link {
+		color: #333 !important;
+		font-weight: 600;
+		padding: 10px 20px !important;
+		}
 
-                    .navbar-custom .nav-link.active {
-                        background-color: var(--brand-teal);
-                        color: #fff !important;
-                        border-radius: 4px;
-                    }
+		.navbar-custom .nav-link.active {
+		background-color: var(--brand-teal);
+		color: #fff !important;
+		border-radius: 4px;
+		}
 
-            /* Carrossel Hero */
-            .hero-carousel .carousel-item {
-                height: 420px;
-                background-size: cover;
-                background-position: center;
-                position: relative;
-            }
+		/* Carrossel Hero */
+		.hero-carousel .carousel-item {
+		height: 420px;
+		background-size: cover;
+		background-position: center;
+		position: relative;
+		}
 
-            .hero-carousel .carousel-caption-custom {
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                top: 0;
-                background: rgba(0, 0, 0, 0.45);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-                color: #fff;
-                text-shadow: 0 2px 4px rgba(0,0,0,0.6);
-                padding: 20px;
-            }
+		.hero-carousel .carousel-caption-custom {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		top: 0;
+		background: rgba(0, 0, 0, 0.45);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		color: #fff;
+		text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+		padding: 20px;
+		}
 
-            /* Cartões de Serviços */
-            .service-card {
-                background: #FFFFFF;
-                border: 1px solid #E9ECEF;
-                border-radius: 16px;
-                padding: 30px 25px;
-                height: 100%;
-                transition: all 0.3s ease;
-                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-                position: relative;
-            }
+		/* Cartões de Serviços */
+		.service-card {
+		background: #FFFFFF;
+		border: 1px solid #E9ECEF;
+		border-radius: 16px;
+		padding: 30px 25px;
+		height: 100%;
+		transition: all 0.3s ease;
+		box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+		position: relative;
+		}
 
-                .service-card:hover {
-                    transform: translateY(-5px);
-                    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-                    border-color: #DDE2E5;
-                }
+		.service-card:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+		border-color: #DDE2E5;
+		}
 
-            .service-icon-box {
-                width: 54px;
-                height: 54px;
-                border-radius: 12px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 24px;
-                margin-bottom: 20px;
-                color: #fff;
-            }
+		.service-icon-box {
+		width: 54px;
+		height: 54px;
+		border-radius: 12px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 24px;
+		margin-bottom: 20px;
+		color: #fff;
+		}
 
-            .icon-blue {
-                background-color: #17A2B8;
-            }
+		.icon-blue {
+		background-color: #17A2B8;
+		}
 
-            .icon-teal {
-                background-color: #20C997;
-            }
+		.icon-teal {
+		background-color: #20C997;
+		}
 
-            .icon-green {
-                background-color: #28A745;
-            }
+		.icon-green {
+		background-color: #28A745;
+		}
 
-            .icon-purple {
-                background-color: #6F42C1;
-            }
+		.icon-purple {
+		background-color: #6F42C1;
+		}
 
-            .icon-orange {
-                background-color: #FD7E14;
-            }
+		.icon-orange {
+		background-color: #FD7E14;
+		}
 
-            .service-title {
-                font-size: 1.35rem;
-                font-weight: 700;
-                color: #222;
-                margin-bottom: 10px;
-            }
+		.service-title {
+		font-size: 1.35rem;
+		font-weight: 700;
+		color: #222;
+		margin-bottom: 10px;
+		}
 
-            .service-description {
-                font-size: 0.92rem;
-                color: var(--text-muted);
-                margin-bottom: 20px;
-                line-height: 1.5;
-            }
+		.service-description {
+		font-size: 0.92rem;
+		color: var(--text-muted);
+		margin-bottom: 20px;
+		line-height: 1.5;
+		}
 
-            .service-list {
-                list-style: none;
-                padding: 0;
-                margin: 0;
-            }
+		.service-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		}
 
-                .service-list li {
-                    font-size: 0.9rem;
-                    color: #444;
-                    margin-bottom: 10px;
-                    display: flex;
-                    align-items: center;
-                }
+		.service-list li {
+		font-size: 0.9rem;
+		color: #444;
+		margin-bottom: 10px;
+		display: flex;
+		align-items: center;
+		}
 
-                    .service-list li i {
-                        color: #20C997;
-                        font-size: 0.85rem;
-                        margin-right: 10px;
-                    }
+		.service-list li i {
+		color: #20C997;
+		font-size: 0.85rem;
+		margin-right: 10px;
+		}
 
-            /* Vitrine do Pet Shop */
-            .product-card {
-                background: #fff;
-                border: 1px solid #EAEAEA;
-                border-radius: 12px;
-                padding: 15px;
-                text-align: center;
-                height: 100%;
-                transition: all 0.3s;
-            }
+		/* Vitrine do Pet Shop */
+		.product-card {
+		background: #fff;
+		border: 1px solid #EAEAEA;
+		border-radius: 12px;
+		padding: 15px;
+		text-align: center;
+		height: 100%;
+		transition: all 0.3s;
+		}
 
-                .product-card:hover {
-                    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-                }
+		.product-card:hover {
+		box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+		}
 
-                .product-card img {
-                    max-height: 140px;
-                    object-fit: contain;
-                    margin-bottom: 15px;
-                }
+		.product-card img {
+		max-height: 140px;
+		object-fit: contain;
+		margin-bottom: 15px;
+		}
 
-            /* Depoimentos */
-            .testimonial-card {
-                background: #fff;
-                border-radius: 12px;
-                padding: 20px;
-                border: 1px solid #EAEAEA;
-                box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-                height: 100%;
-            }
+		/* Depoimentos */
+		.testimonial-card {
+		background: #fff;
+		border-radius: 12px;
+		padding: 20px;
+		border: 1px solid #EAEAEA;
+		box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+		height: 100%;
+		}
 
-            .stars {
-                color: #FFC107;
-                margin-bottom: 10px;
-            }
+		.stars {
+		color: #FFC107;
+		margin-bottom: 10px;
+		}
 
-            /* Botões */
-            .btn-whatsapp {
-                background-color: #25D366;
-                color: #fff;
-                font-weight: 600;
-                border: none;
-                border-radius: 25px;
-                padding: 8px 20px;
-                display: inline-flex;
-                align-items: center;
-                gap: 8px;
-                text-decoration: none;
-            }
+		/* Botões */
+		.btn-whatsapp {
+		background-color: #25D366;
+		color: #fff;
+		font-weight: 600;
+		border: none;
+		border-radius: 25px;
+		padding: 8px 20px;
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		text-decoration: none;
+		}
 
-                .btn-whatsapp:hover {
-                    background-color: #1EBE5D;
-                    color: #fff;
-                }
+		.btn-whatsapp:hover {
+		background-color: #1EBE5D;
+		color: #fff;
+		}
 
-            .btn-agendar-main {
-                background-color: var(--brand-teal);
-                color: #fff;
-                font-size: 1.1rem;
-                font-weight: 700;
-                padding: 14px 40px;
-                border-radius: 30px;
-                border: none;
-                box-shadow: 0 4px 12px rgba(43, 107, 108, 0.3);
-                transition: all 0.3s;
-                text-decoration: none;
-            }
+		.btn-agendar-main {
+		background-color: var(--brand-teal);
+		color: #fff;
+		font-size: 1.1rem;
+		font-weight: 700;
+		padding: 14px 40px;
+		border-radius: 30px;
+		border: none;
+		box-shadow: 0 4px 12px rgba(43, 107, 108, 0.3);
+		transition: all 0.3s;
+		text-decoration: none;
+		}
 
-                .btn-agendar-main:hover {
-                    background-color: var(--brand-teal-dark);
-                    color: #fff;
-                    transform: translateY(-2px);
-                }
+		.btn-agendar-main:hover {
+		background-color: var(--brand-teal-dark);
+		color: #fff;
+		transform: translateY(-2px);
+		}
 
-            /* Rodapé Informativo */
-            footer {
-                background-color: #1A1D20;
-                color: #D3D3D3;
-                padding: 50px 0 20px;
-            }
-    </style>
+		/* Rodapé Informativo */
+		footer {
+		background-color: #1A1D20;
+		color: #D3D3D3;
+		padding: 50px 0 20px;
+		}
+
+		/* Botão de Login no cabeçalho */
+		.login-button {
+		position: absolute;
+		right: 15px;
+		top: 50%;
+		transform: translateY(-50%);
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		color: var(--brand-teal);
+		font-size: 1.5rem;
+		text-decoration: none;
+		padding: 10px 15px;
+		border: 2px solid var(--brand-teal);
+		border-radius: 30px;
+		transition: all 0.3s ease;
+		}
+
+		.login-button:hover {
+		background-color: var(--brand-teal);
+		color: #fff;
+		}
+
+		.login-button span {
+		font-size: 0.9rem;
+		font-weight: 600;
+		}
+
+		/* Ajuste para dispositivos móveis */
+		@@media (max-width: 576px) {
+		.login-button {
+		right: 10px;
+		padding: 8px 10px;
+		font-size: 1.2rem;
+		}
+
+		.login-button span {
+		display: none;
+		}
+		}
+	</style>
 </head>
 <body>
 
-    <header class="header-logo-container">
-        <div class="container text-center">
-            <div class="d-inline-flex flex-column align-items-center">
-                <div class="d-flex align-items-center">
-                    <i class="fa-solid fa-dog fa-3x me-2" style="color: var(--brand-orange);"></i>
-                    <h1 class="m-0 fw-bold" style="font-size: 2.8rem;">
-                        <span style="color: var(--brand-teal);">Pet</span><span style="color: var(--brand-orange);">Go</span>
-                        <i class="fa-solid fa-arrow-right-long" style="color: var(--brand-orange); font-size: 1.8rem;"></i>
-                    </h1>
-                </div>
-            </div>
-        </div>
-    </header>
+	<header class="header-logo-container">
+		<div class="container text-center position-relative">
+
+			<!-- Logo PetGo -->
+			<div class="d-inline-flex flex-column align-items-center">
+				<div class="d-flex align-items-center">
+					<i class="fa-solid fa-dog fa-3x me-2"
+					   style="color: var(--brand-orange);"></i>
+
+					<h1 class="m-0 fw-bold" style="font-size: 2.8rem;">
+						<span style="color: var(--brand-teal);">Pet</span>
+						<span style="color: var(--brand-orange);">Go</span>
+						<i class="fa-solid fa-arrow-right-long"
+						   style="color: var(--brand-orange); font-size: 1.8rem;"></i>
+					</h1>
+				</div>
+			</div>
+
+			
+			
+
+		</div>
+	</header>
 
     <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
         <div class="container justify-content-center">

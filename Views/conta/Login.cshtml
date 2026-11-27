@@ -1,42 +1,234 @@
+
 @model PETGO.Models.LoginViewModel
 
 @{
     ViewData["Title"] = "Entrar";
 }
 
-<div class="row justify-content-center mt-4">
-    <div class="col-md-5 col-lg-4">
-        <div class="card shadow-sm">
-            <div class="card-body p-4">
-                <h2 class="h4 mb-3 text-center">Entrar no PETGO</h2>
+<style>
+    :root {
+        --brand-teal: #2B6B6C;
+        --brand-teal-dark: #1E4D4E;
+        --brand-orange: #F27825;
+        --brand-bg: #F8F9FA;
+    }
 
-                <form asp-action="Login" method="post" asp-route-returnUrl="@ViewData["ReturnUrl"]">
-                    @Html.AntiForgeryToken()
+    .login-page {
+        min-height: 75vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px 15px;
+        background: var(--brand-bg);
+    }
 
-                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+    .login-card {
+        width: 100%;
+        max-width: 430px;
+        background: #fff;
+        border: none;
+        border-radius: 18px;
+        overflow: hidden;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    }
 
-                    <div class="mb-3">
-                        <label asp-for="Email" class="form-label">E-mail</label>
-                        <input asp-for="Email" class="form-control" placeholder="nome@exemplo.com" autocomplete="email" />
-                        <span asp-validation-for="Email" class="text-danger small"></span>
-                    </div>
+    .login-header {
+        background: var(--brand-teal);
+        color: white;
+        text-align: center;
+        padding: 30px 20px;
+    }
 
-                    <div class="mb-3">
-                        <label asp-for="Password" class="form-label">Senha</label>
-                        <input asp-for="Password" class="form-control" placeholder="Digite sua senha" autocomplete="current-password" />
-                        <span asp-validation-for="Password" class="text-danger small"></span>
-                    </div>
+    .login-header .logo {
+        font-size: 38px;
+        margin-bottom: 8px;
+        color: var(--brand-orange);
+    }
 
-                    <div class="mb-3 form-check">
-                        <input asp-for="Lembrar" class="form-check-input" />
-                        <label asp-for="Lembrar" class="form-check-label">Lembrar de mim</label>
-                    </div>
+    .login-header h2 {
+        font-weight: 800;
+        margin-bottom: 5px;
+    }
 
-                    <div class="d-grid">
-                        <button type="submit" class="btn btn-primary">Entrar</button>
-                    </div>
-                </form>
+    .login-header p {
+        margin: 0;
+        font-size: 14px;
+        opacity: .9;
+    }
+
+    .login-body {
+        padding: 30px;
+    }
+
+    .login-card .form-label {
+        color: var(--brand-teal-dark);
+        font-weight: 600;
+    }
+
+    .login-card .form-control {
+        border-radius: 9px;
+        padding: 12px;
+        border: 1px solid #DEE2E6;
+    }
+
+    .login-card .form-control:focus {
+        border-color: var(--brand-teal);
+        box-shadow: 0 0 0 3px rgba(43,107,108,.12);
+    }
+
+    .login-card .form-check-input:checked {
+        background-color: var(--brand-teal);
+        border-color: var(--brand-teal);
+    }
+
+    .btn-login {
+        background: var(--brand-teal);
+        color: white;
+        border: none;
+        border-radius: 25px;
+        padding: 12px;
+        font-weight: 700;
+        transition: .3s;
+    }
+
+    .btn-login:hover {
+        background: var(--brand-teal-dark);
+        color: white;
+        transform: translateY(-2px);
+    }
+
+    .btn-cadastro {
+        display: block;
+        width: 100%;
+        text-align: center;
+        background: white;
+        color: var(--brand-orange);
+        border: 2px solid var(--brand-orange);
+        border-radius: 25px;
+        padding: 10px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: .3s;
+    }
+
+    .btn-cadastro:hover {
+        background: var(--brand-orange);
+        color: white;
+    }
+
+    .login-footer {
+        text-align: center;
+        color: #777;
+        font-size: 13px;
+        margin-top: 22px;
+    }
+
+    .login-footer strong {
+        color: var(--brand-teal);
+    }
+</style>
+
+<div class="login-page">
+    <div class="card login-card">
+
+        <div class="login-header">
+            <div class="logo">
+                <i class="fa-solid fa-paw"></i>
             </div>
+
+            <h2>Bem-vindo ao PetGo!</h2>
+
+            <p>Entre na sua conta e cuide de quem você ama.</p>
+        </div>
+
+        <div class="login-body">
+
+            <form asp-controller="Conta"
+                  asp-action="Login"
+                  method="post"
+                  asp-route-returnUrl="@ViewData["ReturnUrl"]">
+
+                @Html.AntiForgeryToken()
+
+                <div asp-validation-summary="ModelOnly"
+                     class="text-danger mb-3"></div>
+                     @if (TempData["Sucesso"] != null)
+{
+    <div class="alert alert-success">
+        <i class="fa-solid fa-circle-check me-2"></i>
+        @TempData["Sucesso"]
+    </div>
+}
+
+                <div class="mb-3">
+                    <label asp-for="Email" class="form-label">
+                        E-mail
+                    </label>
+
+                    <input asp-for="Email"
+                           class="form-control"
+                           placeholder="nome@exemplo.com"
+                           autocomplete="email" />
+
+                    <span asp-validation-for="Email"
+                          class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Password" class="form-label">
+                        Senha
+                    </label>
+
+                    <input asp-for="Password"
+                           class="form-control"
+                           placeholder="Digite sua senha"
+                           autocomplete="current-password" />
+
+                    <span asp-validation-for="Password"
+                          class="text-danger small"></span>
+                </div>
+
+                <div class="mb-4 form-check">
+                    <input asp-for="Lembrar"
+                           class="form-check-input" />
+
+                    <label asp-for="Lembrar"
+                           class="form-check-label">
+                        Lembrar de mim
+                    </label>
+                </div>
+
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-login">
+                        <i class="fa-solid fa-right-to-bracket me-2"></i>
+                        Entrar na minha conta
+                    </button>
+                </div>
+
+            </form>
+
+            <div class="text-center my-3">
+                <span class="text-muted small">Ainda não tem cadastro?</span>
+            </div>
+
+            
+<a asp-controller="Conta"
+   asp-action="Cadastro"
+   class="btn-cadastro">
+
+    <i class="fa-solid fa-user-plus me-2"></i>
+    Criar minha conta
+
+</a>
+
+
+            <div class="login-footer">
+                Cuidando do seu melhor amigo com
+                <strong>amor e dedicação.</strong>
+                <br />
+                © 2026 PetGo
+            </div>
+
         </div>
     </div>
 </div>

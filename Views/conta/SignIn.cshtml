@@ -1,0 +1,251 @@
+
+@model PETGO.Models.CadastroViewModel
+
+@{
+    ViewData["Title"] = "Criar Conta";
+}
+
+<style>
+    :root {
+        --brand-teal: #2B6B6C;
+        --brand-teal-dark: #1E4D4E;
+        --brand-orange: #F27825;
+    }
+
+    .cadastro-page {
+        background: #F8F9FA;
+        padding: 45px 15px;
+    }
+
+    .cadastro-card {
+        max-width: 650px;
+        margin: auto;
+        border: none;
+        border-radius: 18px;
+        overflow: hidden;
+        box-shadow: 0 8px 30px rgba(0,0,0,.08);
+    }
+
+    .cadastro-header {
+        background: var(--brand-teal);
+        color: white;
+        padding: 28px;
+        text-align: center;
+    }
+
+    .cadastro-header i {
+        color: var(--brand-orange);
+        font-size: 38px;
+        margin-bottom: 10px;
+    }
+
+    .cadastro-header h2 {
+        font-weight: 800;
+    }
+
+    .cadastro-body {
+        padding: 30px;
+    }
+
+    .cadastro-body label {
+        color: var(--brand-teal-dark);
+        font-weight: 600;
+    }
+
+    .cadastro-body .form-control {
+        padding: 11px;
+        border-radius: 9px;
+    }
+
+    .cadastro-body .form-control:focus {
+        border-color: var(--brand-teal);
+        box-shadow: 0 0 0 3px rgba(43,107,108,.12);
+    }
+
+    .btn-cadastrar {
+        background: var(--brand-teal);
+        color: white;
+        border: none;
+        border-radius: 25px;
+        padding: 12px;
+        font-weight: 700;
+        width: 100%;
+    }
+
+    .btn-cadastrar:hover {
+        background: var(--brand-teal-dark);
+        color: white;
+    }
+
+    .btn-voltar {
+        display: block;
+        text-align: center;
+        color: var(--brand-orange);
+        border: 2px solid var(--brand-orange);
+        border-radius: 25px;
+        padding: 10px;
+        text-decoration: none;
+        font-weight: 700;
+        margin-top: 12px;
+    }
+
+    .btn-voltar:hover {
+        background: var(--brand-orange);
+        color: white;
+    }
+
+    .campo-obrigatorio {
+        color: #dc3545;
+    }
+</style>
+
+<div class="cadastro-page">
+    <div class="card cadastro-card">
+
+        <div class="cadastro-header">
+            <i class="fa-solid fa-paw"></i>
+            <h2>Faça parte do PetGo!</h2>
+            <p class="mb-0">
+                Crie sua conta para aproveitar nossos serviços.
+            </p>
+        </div>
+
+        <div class="cadastro-body">
+
+            <form asp-controller="Conta"
+                  asp-action="Cadastro"
+                  method="post">
+
+                @Html.AntiForgeryToken()
+
+                <div asp-validation-summary="All"
+     class="alert alert-danger mb-3"></div>
+
+                <h5 class="mb-3" style="color:#2B6B6C">
+                    <i class="fa-solid fa-user me-2"></i>
+                    Dados pessoais
+                </h5>
+
+                <div class="mb-3">
+                    <label asp-for="Nome" class="form-label">
+                        Nome completo <span class="campo-obrigatorio">*</span>
+                    </label>
+                    <input asp-for="Nome"
+                           class="form-control"
+                           placeholder="Digite seu nome completo"
+                           maxlength="150" />
+                    <span asp-validation-for="Nome"
+                          class="text-danger small"></span>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="CPF" class="form-label">
+                            CPF <span class="campo-obrigatorio">*</span>
+                        </label>
+                        <input asp-for="CPF"
+                               id="CPF"
+                               class="form-control"
+                               placeholder="000.000.000-00"
+                               maxlength="14" />
+                        <span asp-validation-for="CPF"
+                              class="text-danger small"></span>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Telefone" class="form-label">
+                            Telefone
+                        </label>
+                        <input asp-for="Telefone"
+                               class="form-control"
+                               placeholder="(11) 99999-9999"
+                               maxlength="20" />
+                        <span asp-validation-for="Telefone"
+                              class="text-danger small"></span>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="DataNascimento" class="form-label">
+                        Data de nascimento
+                        <span class="campo-obrigatorio">*</span>
+                    </label>
+                    <input asp-for="DataNascimento"
+                           type="date"
+                           class="form-control" />
+                    <span asp-validation-for="DataNascimento"
+                          class="text-danger small"></span>
+                </div>
+
+                <hr class="my-4" />
+
+                <h5 class="mb-3" style="color:#2B6B6C">
+                    <i class="fa-solid fa-lock me-2"></i>
+                    Dados de acesso
+                </h5>
+
+                <div class="mb-3">
+                    <label asp-for="Email" class="form-label">
+                        E-mail <span class="campo-obrigatorio">*</span>
+                    </label>
+                    <input asp-for="Email"
+                           type="email"
+                           class="form-control"
+                           placeholder="nome@exemplo.com"
+                           maxlength="150"
+                           autocomplete="email" />
+                    <span asp-validation-for="Email"
+                          class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Senha" class="form-label">
+                        Senha <span class="campo-obrigatorio">*</span>
+                    </label>
+                    <input asp-for="Senha"
+                           type="password"
+                           class="form-control"
+                           placeholder="Mínimo de 8 caracteres"
+                           autocomplete="new-password" />
+                    <span asp-validation-for="Senha"
+                          class="text-danger small"></span>
+                </div>
+
+                <div class="mb-4">
+                    <label asp-for="ConfirmarSenha" class="form-label">
+                        Confirmar senha
+                        <span class="campo-obrigatorio">*</span>
+                    </label>
+                    <input asp-for="ConfirmarSenha"
+                           type="password"
+                           class="form-control"
+                           placeholder="Digite a senha novamente"
+                           autocomplete="new-password" />
+                    <span asp-validation-for="ConfirmarSenha"
+                          class="text-danger small"></span>
+                </div>
+
+                <button type="submit" class="btn btn-cadastrar">
+                    <i class="fa-solid fa-user-plus me-2"></i>
+                    Finalizar cadastro
+                </button>
+
+                <a asp-controller="Conta"
+                   asp-action="Login"
+                   class="btn-voltar">
+                    <i class="fa-solid fa-arrow-left me-2"></i>
+                    Já tenho uma conta - Entrar
+                </a>
+
+                <p class="text-center text-muted small mt-4 mb-0">
+                    © 2026 PetGo - Cuidando de quem você ama.
+                </p>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
